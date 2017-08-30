@@ -6,16 +6,40 @@ public class InteractRunner {
 		try {
 			calculator calc = new calculator();
 			String exit = "no";
+			String deystvie;
 			while (!exit.equals("yes")){
+				System.out.println("Vvedite deystvie(+,-,/,*)");
+				deystvie = reader.next();
+				if("+".equals(deystvie)||"*".equals(deystvie)||"/".equals(deystvie)||"-".equals(deystvie))
+				{
 				System.out.println("Enter first arg : ");
 				String first = reader.next();
 				System.out.println("Enter second arg : ");
 				String second = reader.next();
-				calc.add(Integer.valueOf(first), Integer.valueOf(second));
-				System.out.println("Result : "+calc.getResult());
+				if ("+".equals(deystvie))
+				{
+					calc.add(Integer.valueOf(first), Integer.valueOf(second));
+					System.out.println("Result : "+calc.getResult());
+				}
+				
+				else if ("*".equals(deystvie)){
+					calc.umnoj(Integer.valueOf(first), Integer.valueOf(second));
+					System.out.println("Result : "+calc.getResult());
+				}
+				else if ("/".equals(deystvie)){
+					calc.div(Integer.valueOf(first), Integer.valueOf(second));			
+					System.out.println("Result : "+calc.getResult());										
+				}
+				else if ("-".equals(deystvie)){
+					calc.razn(Integer.valueOf(first), Integer.valueOf(second));
+					System.out.println("Result : "+calc.getResult());	
+				}
+				
 				calc.cleanReasult();
 				System.out.println("Exit yes/no");
 				exit = reader.next();
+				}
+				else{System.out.println("Operators error");}
 			}
 		} finally {
 			reader.close();

@@ -15,6 +15,30 @@ public class calculator {
 		}
 	}
 	/**
+	умножение
+	*/
+	public void umnoj (int first, int second){
+		
+		this.result=first*second;
+		
+	}
+	/**
+	деление
+	*/
+	public void div (int first, int second){
+		//проверка деления на 0, в результате будет 0
+		if(second!=0){
+		this.result=first/second;
+	}
+	else{
+		this.result=0;
+	}
+	
+	}
+	public void razn (int first, int second){
+		this.result = first-second;
+	}
+	/**
 	получить результаты
 	@return результат вычисления
 	*/
